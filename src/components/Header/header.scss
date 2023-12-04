@@ -1,0 +1,88 @@
+@import "../../scss/mixin.scss";
+nav {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  #nav {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      li {
+        a {
+          text-decoration: none;
+          color: black;
+          font-weight: 500;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  #icon {
+    display: none;
+  }
+  .active {
+    color: red !important;
+  }
+}
+
+@include respond(phone) {
+  nav {
+    #overlay {
+      position: fixed;
+      top: 74px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(99, 99, 99, 0.5);
+      display: none;
+    }
+    #overlay.overlay-active {
+      display: block !important;
+    }
+    #icon {
+      display: block;
+    }
+    #nav-item.active {
+      right: 0;
+    }
+    #nav-item {
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      position: fixed;
+      right: -250px;
+      top: 74px;
+      width: 250px;
+      height: 100vh;
+      z-index: 99;
+      transition: all 0.2s ease-in;
+      background-color: #fff;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+        gap: 0px;
+        li {
+          width: 100%;
+          padding: 20px 10px;
+          border-bottom: 1px solid #ccc;
+          a {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

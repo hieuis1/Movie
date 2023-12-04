@@ -8,6 +8,9 @@ import Home from "./modules/home";
 import NotFound from "./modules/NotFound";
 import Login from "./modules/Login";
 import SignUp from "./modules/SignUp";
+import Detail from "./modules/detail";
+import Ticket from "./modules/ticket";
+import AdminLayout from "./layouts/admin/AdminLayout";
 
 function App() {
   return (
@@ -17,7 +20,11 @@ function App() {
           <Route index element={<Home></Home>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/sign-up" element={<SignUp></SignUp>}></Route>
+          <Route path="/detail/:id" element={<Detail></Detail>} />
+          <Route path="/ticket" element={<Ticket></Ticket>} />
         </Route>
+
+        <Route path="/admin" element={<AdminLayout></AdminLayout>}></Route>
 
         {/* Not found */}
         <Route path="*" element={<NotFound></NotFound>}></Route>
