@@ -1,0 +1,56 @@
+@import "../../scss/mixin.scss";
+@import "../../scss/variable.scss";
+
+#detail {
+  margin-top: 75px;
+  background-image: url(https://touchcinema.com/images/bg.jpg);
+  height: 150vh;
+  .detail-title {
+    padding-top: 20px;
+    border-bottom: 1px solid #fff;
+  }
+  .container {
+    width: 80% !important;
+  }
+  .detail-head {
+    padding-top: 50px;
+    margin-top: 20px;
+    .detail-img {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      img {
+        width: 250px;
+        height: 350px;
+      }
+      .mota {
+        color: white;
+        .mota-name {
+          margin-bottom: 30px;
+          h3 {
+            font-size: 28px;
+            text-transform: capitalize;
+            font-weight: 700;
+            color: #ea3b92;
+            text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+              -1px 1px 0 #fff, 1px 1px 0 #fff;
+          }
+        }
+        .btn {
+          padding: 0;
+          display: flex;
+          gap: 10px;
+          border: none;
+          button {
+            background-color: $auth_color;
+            outline: none;
+            width: 200px;
+            &:hover {
+              background-color: $auth_hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

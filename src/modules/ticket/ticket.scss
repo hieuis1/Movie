@@ -1,0 +1,59 @@
+#ticket {
+  margin-top: 150px;
+  display: flex;
+  .order-left {
+    width: 50%;
+  }
+  .all-chair {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 10px;
+  }
+  .screen {
+    margin-bottom: 70px;
+    position: relative;
+    .movie-screen {
+      width: 103%;
+
+      background-color: gray;
+      height: 7px;
+      display: block;
+    }
+    .movie-bg {
+      width: 100%; /* Chiều rộng của hình thang */
+      height: 0; /* Đặt chiều cao thành 0 để tạo hình thang */
+      border-left: 50px solid transparent; /* Điểm mặt của hình thang */
+      border-right: 50px solid transparent; /* Điểm mặt của hình thang */
+      border-top: 30px solid rgba($color: #d9be96, $alpha: 0.5); /* Điểm mặt dưới của hình thang và màu nền */
+      transform: rotate(180deg);
+      //   background: rgb(88, 88, 91);
+      //   background: linear-gradient(
+      //     180deg,
+      //     rgba(88, 88, 91, 0.5394608527004552) 0%,
+      //     rgba(177, 128, 44, 0.7663516090029762) 0%,
+      //     rgba(166, 166, 166, 0.7943628134847689) 66%
+      //   );
+    }
+    .movie-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+#chair {
+  border: 1px solid #ccc;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 5px;
+  background-color: #ccc;
+  font-size: small;
+  cursor: pointer;
+}
+.buy {
+  background-color: rgb(229, 25, 25) !important;
+  color: white;
+}

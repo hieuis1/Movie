@@ -1,0 +1,118 @@
+@import "../../../scss/variable.scss";
+@import "../../../scss/mixin.scss";
+#banner {
+  margin-top: 75px;
+  .banner-img {
+    position: relative;
+    img {
+      width: 100vw;
+      height: 85vh;
+    }
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: 50px !important;
+  }
+  .slick-dots li button:before {
+    font-size: 15px !important;
+    color: gray !important;
+  }
+  .slick-dots li.slick-active button:before {
+    opacity: 0.75;
+    color: $auth_color !important;
+  }
+}
+.next-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  right: 10px;
+  color: #ccc;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+}
+.prev-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  left: 10px;
+  color: #ccc;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+}
+
+#trailer-banner {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  .icon-close {
+    position: absolute;
+    z-index: 4;
+    right: -50px;
+    top: -20px;
+    color: white;
+    cursor: pointer;
+  }
+}
+#overlay-banner {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgba($color: #494848, $alpha: 0.83);
+}
+.overlay-active {
+  display: block !important;
+}
+
+.banner-img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgba($color: #494848, $alpha: 0.63);
+  opacity: 0;
+  transition: all 0.2s;
+}
+.icon-play {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  cursor: pointer;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.2s;
+}
+.banner-img {
+  &:hover {
+    .icon-play {
+      top: 50%;
+      opacity: 1;
+    }
+    .banner-img-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+@include respond(phone) {
+  #banner {
+    display: none;
+  }
+}

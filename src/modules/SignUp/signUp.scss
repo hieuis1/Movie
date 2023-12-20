@@ -1,0 +1,63 @@
+@import "../../scss/variable.scss";
+@import "../../scss/mixin.scss";
+#sign-up {
+  height: 150vh;
+  background-image: url(https://tcdtist-tix-clone.vercel.app/static/media/backapp.b46ef3a1.jpg);
+  margin-top: 75px;
+  #form-sign-up {
+    background-color: #fff;
+    width: 30vw;
+    padding: 40px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  }
+  .sign-up-head {
+    font-weight: 500;
+    color: $auth_color;
+  }
+  button {
+    background-color: $auth_color;
+    &:hover {
+      background-color: $auth_hover;
+    }
+  }
+  .icon-father {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .icon {
+    color: white;
+    background-color: $auth_color;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    margin: auto;
+  }
+}
+
+@include respond(desktop) {
+  #sign-up {
+    #form-sign-up {
+      width: 40vw;
+    }
+  }
+}
+@include respond(tab-port) {
+  #sign-up {
+    #form-sign-up {
+      width: 50vw;
+    }
+  }
+}
+@include respond(phone) {
+  #sign-up {
+    #form-sign-up {
+      width: 75vw;
+    }
+  }
+}
