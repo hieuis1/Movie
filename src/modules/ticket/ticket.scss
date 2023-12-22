@@ -1,24 +1,19 @@
 #ticket {
-  margin-top: 150px;
+  padding-top: 150px;
   display: flex;
-  .order-left {
-    width: 50%;
-  }
+  background-color: #f1f1f1;
   .all-chair {
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
+    grid-template-columns: repeat(13, 1fr);
     gap: 10px;
+  }
+  .order-left {
+    width: 50%;
   }
   .screen {
     margin-bottom: 70px;
     position: relative;
-    .movie-screen {
-      width: 103%;
 
-      background-color: gray;
-      height: 7px;
-      display: block;
-    }
     .movie-bg {
       width: 100%; /* Chiều rộng của hình thang */
       height: 0; /* Đặt chiều cao thành 0 để tạo hình thang */
@@ -43,17 +38,132 @@
   }
 }
 #chair {
-  border: 1px solid #ccc;
-  width: 35px;
-  height: 35px;
+  background-image: url(https://www.betacinemas.vn/Assets/global/img/booking/seat-unselect-normal.png);
+  width: 40px;
+  /* float: left; */
+  height: 40px;
+  display: inline-block;
   text-align: center;
-  line-height: 35px;
-  border-radius: 5px;
-  background-color: #ccc;
-  font-size: small;
-  cursor: pointer;
+  line-height: 40px;
+  font-size: 11px;
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center;
+  color: #fff;
+  font-family: SFProText;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  border: none;
 }
 .buy {
-  background-color: rgb(229, 25, 25) !important;
+  background-image: url(https://www.betacinemas.vn/Assets/global/img/booking/seat-select-normal.png) !important;
   color: white;
+}
+.sold-out {
+  background-image: url();
+}
+
+#chair-vip {
+  background-image: url(https://www.betacinemas.vn/Assets/global/img/booking/seat-unselect-vip.png);
+  width: 40px;
+  /* float: left; */
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  font-size: 11px;
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: center;
+  color: #fff;
+  font-family: SFProText;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  border: none;
+}
+.buy-vip {
+  background-image: url(https://www.betacinemas.vn/Assets/global/img/booking/seat-select-vip.png) !important;
+  color: white;
+}
+.sold-out-vip {
+  background-image: url(https://www.betacinemas.vn/Assets/global/img/booking/seat-buy-vip.png);
+}
+.loaiGhe {
+  padding: 10px;
+  display: flex;
+  gap: 30px;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  .loaiGhe-container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
+    .thuong,
+    .vip {
+      display: flex;
+      gap: 10px;
+      p {
+        width: 50px;
+      }
+    }
+  }
+  .canBuy-container {
+    display: flex;
+    gap: 10px;
+    align-items: start;
+    .canBuy,
+    .isSelect,
+    .isSold {
+      display: flex;
+      gap: 5px;
+    }
+  }
+}
+.ticket-order {
+  display: flex;
+  gap: 50px;
+}
+.order-right {
+  background-color: #fff;
+  height: 500px;
+  width: 30%;
+}
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  h3 {
+    color: #03599d;
+    font-weight: 700;
+  }
+}
+.detail-body1 {
+  margin-top: 20px;
+  .theloai {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .theloai-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .theloai-right {
+      font-weight: 700;
+    }
+  }
 }
