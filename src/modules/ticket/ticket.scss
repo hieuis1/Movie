@@ -1,7 +1,8 @@
 #ticket {
-  padding-top: 150px;
+  padding: 150px 0;
   display: flex;
   background-color: #f1f1f1;
+  justify-content: center;
   .all-chair {
     display: grid;
     grid-template-columns: repeat(13, 1fr);
@@ -9,6 +10,8 @@
   }
   .order-left {
     width: 50%;
+  }
+  .order-right {
   }
   .screen {
     margin-bottom: 70px;
@@ -98,12 +101,13 @@
   color: white;
 }
 .sold-out-vip {
-  background-image: url(https://www.betacinemas.vn/Assets/global/img/booking/seat-buy-vip.png);
+  background-image: url(https://www.betacinemas.vn/Assets/global/img/booking/seat-buy-vip.png) !important;
 }
 .loaiGhe {
   padding: 10px;
   display: flex;
   gap: 30px;
+  justify-content: space-between;
   img {
     width: 40px;
     height: 40px;
@@ -113,6 +117,8 @@
     align-items: start;
     justify-content: center;
     gap: 30px;
+    border-right: 1px solid #ccc;
+    padding-right: 30px;
     .thuong,
     .vip {
       display: flex;
@@ -137,11 +143,13 @@
 .ticket-order {
   display: flex;
   gap: 50px;
+  justify-content: center;
 }
 .order-right {
   background-color: #fff;
-  height: 500px;
-  width: 30%;
+  width: 25%;
+  padding: 10px;
+  border-radius: 10px;
 }
 .detail-header {
   display: flex;
@@ -153,7 +161,12 @@
   }
 }
 .detail-body1 {
-  margin-top: 20px;
+  padding-top: 20px;
+  width: 80%;
+  margin: auto;
+  p {
+    margin-bottom: 0;
+  }
   .theloai {
     display: flex;
     justify-content: space-between;
@@ -166,4 +179,159 @@
       font-weight: 700;
     }
   }
+}
+.detail-body2 {
+  @extend .detail-body1;
+  p {
+    margin-bottom: 0;
+  }
+  .thoiLuong {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .thoiLuong-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .thoiLuong-right {
+      font-weight: 700;
+    }
+  }
+}
+.detail-body3 {
+  @extend .detail-body1;
+  padding-top: 5px;
+  p {
+    margin-bottom: 0;
+  }
+  .rapChieu {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    .rapChieu-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .rapChieu-right {
+      font-weight: 700;
+    }
+  }
+}
+.detail-body4 {
+  @extend .detail-body1;
+  padding-top: 15px;
+  p {
+    margin-bottom: 0;
+  }
+  .ngayChieu {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    .ngayChieu-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .ngayChieu-right {
+      font-weight: 700;
+    }
+  }
+}
+.detail-body5 {
+  @extend .detail-body1;
+  padding-top: 15px;
+  p {
+    margin-bottom: 0;
+  }
+  .gioChieu {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    .gioChieu-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .gioChieu-right {
+      font-weight: 700;
+    }
+  }
+}
+.detail-body6 {
+  @extend .detail-body1;
+  padding-top: 15px;
+  p {
+    margin-bottom: 0;
+  }
+  .phongChieu {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    .phongChieu-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .phongChieu-right {
+      font-weight: 700;
+    }
+  }
+}
+.detail-body7 {
+  @extend .detail-body1;
+  padding-top: 15px;
+  p {
+    margin-bottom: 0;
+  }
+  .diaChi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .diaChi-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .diaChi-right {
+      font-weight: 700;
+    }
+  }
+}
+.detail-body8 {
+  @extend .detail-body1;
+  padding-top: 15px;
+  p {
+    margin-bottom: 0;
+  }
+  .gheNgoi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .gheNgoi-left-item {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .gheNgoi-right {
+      font-weight: 700;
+      .gheNgoi-right-item {
+        display: flex;
+        column-gap: 10px;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+.button-buy {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  button {
+    background-image: linear-gradient(
+      to right,
+      #0a64a7 0%,
+      #258dcf 51%,
+      #3db1f3 100%
+    ) !important;
+    color: #fff;
+  }
+}
+
+hr {
+  border-top: 2px #0b0a0a double !important;
 }
