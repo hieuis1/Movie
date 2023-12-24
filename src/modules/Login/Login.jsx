@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation } from "@tanstack/react-query";
 import { loginApi } from "../../api/userApi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { SET_AUTH } from "../../redux/slice/loginSlice";
@@ -27,7 +27,12 @@ const Login = () => {
 
       .min(6, "Mật khẩu có ít nhất 6 ký tự"),
   });
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
   const { mutate } = useMutation({
     mutationFn: (values) => loginApi(values),
     onSuccess: (values) => {

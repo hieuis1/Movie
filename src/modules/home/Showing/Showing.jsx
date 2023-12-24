@@ -19,6 +19,29 @@ const Showing = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     rows: 2,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: 10,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
   const navigate = useNavigate();
 

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   buy: [],
   total: 0,
+  newArr: [],
 };
 
 const buySlice = createSlice({
@@ -20,14 +21,24 @@ const buySlice = createSlice({
           (item) => item.maGhe != action.payload.maGhe
         );
       }
+      state.newArr = [];
+      state.newArr = state.buy.map((item) => {
+        return {
+          maGhe: item.maGhe,
+          giaVe: item.giaVe,
+        };
+      });
       state.total = 0;
       state.buy.forEach((item) => {
         state.total += item.giaVe;
       });
     },
+    CLEAR_BUY: (state, action) => {
+      (state.buy = []), (state.newArr = []), (state.total = 0);
+    },
   },
 });
 
-export const { ADD_BUY } = buySlice.actions;
+export const { ADD_BUY, CLEAR_BUY } = buySlice.actions;
 
 export default buySlice.reducer;

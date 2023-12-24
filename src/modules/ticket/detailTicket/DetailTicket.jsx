@@ -1,12 +1,61 @@
 import { Button } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
-import { array } from "yup";
+import { useMutation } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { CLEAR_BUY } from "../../../redux/slice/buySlice";
+import { datVe } from "../../../api/rapApi";
+import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 const DetailTicket = ({ data }) => {
+  const { id } = useParams();
   const buyArr = useSelector((state) => state.buy.buy);
+  const dataArr = useSelector((state) => state.buy.newArr);
   const total = useSelector((state) => state.buy.total);
+  const { mutate } = useMutation({
+    // eslint-disable-next-line no-undef
+    mutationFn: (values) => datVe(values),
+    onSuccess: () => {
+      disPatch(CLEAR_BUY);
+      Swal.fire({
+        title: "Đặt vé thành công",
+        text: "Click ok để tiếp tục",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
+      });
+    },
+  });
 
+  const disPatch = useDispatch();
+  const handleBuy = () => {
+    let data = {
+      maLichChieu: id,
+      danhSachVe: dataArr,
+    };
+    mutate(data);
+  };
+  const handleClick = () => {
+    if (buyArr.length > 0) {
+      Swal.fire({
+        title: `Bạn chắc chắn mua ${buyArr.length} không ?`,
+        icon: "question",
+        confirmButtonColor: "#3085d6",
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          handleBuy();
+        }
+      });
+    } else {
+      alert("Vui lòng chọn ghế");
+    }
+  };
   return (
     <div id="detail-ticket">
       <div className="detail-header">
@@ -131,7 +180,9 @@ const DetailTicket = ({ data }) => {
         <div className="total-price">{total} VND</div>
       </div>
       <div className="button-buy">
-        <Button variant="contained">Mua ({buyArr.length} vé)</Button>
+        <Button onClick={handleClick} variant="contained">
+          Mua ({buyArr.length} vé)
+        </Button>
       </div>
     </div>
   );

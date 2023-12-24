@@ -38,3 +38,9 @@
     }
   }
 }
+
+@include respond(phone) {
+  #select-fast {
+    display: none;
+  }
+}

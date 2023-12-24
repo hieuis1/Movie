@@ -1,3 +1,4 @@
+@import "../../scss/mixin.scss";
 #ticket {
   padding: 150px 0;
   display: flex;
@@ -340,4 +341,20 @@
 }
 hr {
   border-top: 2px #0b0a0a double !important;
+}
+
+@include respond(phone) {
+  #ticket {
+    .ticket-order {
+      flex-wrap: wrap !important;
+      overflow: hidden;
+      .order-left {
+        width: 70% !important;
+        overflow: scroll;
+      }
+      .order-right {
+        width: 70% !important;
+      }
+    }
+  }
 }

@@ -50,6 +50,7 @@
       background-color: $auth_color;
       border: none;
       margin-top: 32px;
+
       &:hover {
         background-color: $auth_hover;
       }
@@ -66,6 +67,30 @@
     img {
       width: 80%;
       height: 370px;
+    }
+  }
+}
+
+@include respond(phone) {
+  .card {
+    &:hover {
+      .card-mota-item {
+        display: block !important;
+      }
+      button {
+        display: block !important;
+      }
+    }
+    display: grid !important;
+    align-items: center;
+    grid-template-columns: 1fr 2fr;
+    button {
+      display: block !important;
+      margin-top: 0 !important;
+    }
+    img {
+      width: 100px !important;
+      height: 150px !important;
     }
   }
 }

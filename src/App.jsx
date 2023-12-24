@@ -15,13 +15,14 @@ import MovieManagement from "./modules/admin/MovieManagement";
 import ShowManagement from "./modules/admin/ShowManagement";
 import AccountManagement from "./modules/admin/AccountManagement";
 import { UserProvider } from "./contexts/UserContext/UserContent";
+import UserDetail from "./modules/user-detail";
+import IsLogin from "./components/isLogin/IsLogin";
 
 function App() {
   return (
     <UserProvider>
       <BrowserRouter>
         <Routes>
-
           <Route path="/" element={<MovieLayout />}>
             <Route index element={<Home></Home>}></Route>
             <Route
@@ -41,7 +42,18 @@ function App() {
               }
             ></Route>
             <Route path="/movie/:id" element={<Detail></Detail>} />
-            <Route path="/ticket/:id" element={<Ticket></Ticket>} />
+            <Route
+              path="/ticket/:id"
+              element={
+                <IsLogin>
+                  <Ticket></Ticket>
+                </IsLogin>
+              }
+            />
+            <Route
+              path="/user-detail"
+              element={<UserDetail></UserDetail>}
+            ></Route>
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>
@@ -55,14 +67,11 @@ function App() {
               path="/admin/account-management"
               element={<AccountManagement></AccountManagement>}
             ></Route>
-
           </Route>
 
           {/* Not found */}
           <Route path="*" element={<NotFound></NotFound>}></Route>
-
-      </Routes>
-
+        </Routes>
       </BrowserRouter>
     </UserProvider>
   );

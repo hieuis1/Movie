@@ -25,3 +25,11 @@ export const layThontinRap = async (payload) => {
     throw new Error();
   }
 };
+export const datVe = async (payload) => {
+  try {
+    let data = await fetcher.post("/QuanLyDatVe/DatVe", payload);
+    return data;
+  } catch (error) {
+    throw new Error();
+  }
+};

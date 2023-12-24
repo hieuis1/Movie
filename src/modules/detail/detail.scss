@@ -4,7 +4,7 @@
 #detail {
   margin-top: 75px;
   background-image: url(https://touchcinema.com/images/bg.jpg);
-  height: 150vh;
+
   .detail-title {
     padding-top: 20px;
     border-bottom: 1px solid #fff;
@@ -49,6 +49,18 @@
               background-color: $auth_hover;
             }
           }
+        }
+      }
+    }
+  }
+}
+@include respond(phone) {
+  #detail {
+    .detail-head {
+      .detail-img {
+        flex-wrap: wrap;
+        .mota {
+          width: 100% !important;
         }
       }
     }

@@ -113,9 +113,16 @@ export default function VerticalTabs() {
                             {rap.lichChieuPhim.map((lichChieu, index2) => {
                               return (
                                 <Button
-                                  onClick={() =>
-                                    navigate(`/ticket/${lichChieu.maLichChieu}`)
-                                  }
+                                  onClick={() => {
+                                    if (localStorage.getItem("auth")) {
+                                      navigate(
+                                        `/ticket/${lichChieu.maLichChieu}`
+                                      );
+                                    } else {
+                                      alert("Vui lòng đăng nhập để đặt vé");
+                                      navigate("/login");
+                                    }
+                                  }}
                                   variant="outlined"
                                   key={index2}
                                 >

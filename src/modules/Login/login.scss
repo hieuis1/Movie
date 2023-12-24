@@ -39,3 +39,9 @@
     margin-top: 20px;
   }
 }
+
+@include respond(phone) {
+  #login-form {
+    width: 80vw !important;
+  }
+}

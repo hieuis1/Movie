@@ -3,12 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import { getSchedule } from "../../api/MovieApi";
 import { useParams } from "react-router-dom";
 import Loading from "../loading";
-import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { ADD_BUY } from "../../redux/slice/buySlice";
-import DetaileTicket from "./detailTicket/DetailTicket";
+import { ADD_BUY, CLEAR_BUY } from "../../redux/slice/buySlice";
+
 import DetailTicket from "./detailTicket/DetailTicket";
 import { useEffect } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { datVe } from "../../api/rapApi";
 const Ticket = () => {
   useEffect(() => {
     window.scrollTo({
@@ -24,7 +25,6 @@ const Ticket = () => {
   const buyArr = useSelector((state) => state.buy.buy);
   const disPatch = useDispatch();
 
-  console.log(data);
   if (isPending) {
     return <Loading></Loading>;
   } else {

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getDetail } from "../../api/MovieApi";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./detail.scss";
 import { Container } from "react-bootstrap";
 import { Button } from "@mui/material";
@@ -16,7 +16,12 @@ const Detail = () => {
     });
   });
   const { id } = useParams();
-
+  const handleDat = () => {
+    window.scrollTo({
+      top: 600,
+      behavior: "smooth",
+    });
+  };
   const { data = {}, isPending } = useQuery({
     queryKey: ["detailMovie", id],
     queryFn: () => getDetail(id),
@@ -54,7 +59,9 @@ const Detail = () => {
                   <p>{data.moTa}</p>
                 </div>
                 <div className="btn">
-                  <Button variant="contained">Đặt vé</Button>
+                  <Button onClick={handleDat} variant="contained">
+                    Đặt vé
+                  </Button>
                   <Button variant="contained">Trailer</Button>
                 </div>
               </div>

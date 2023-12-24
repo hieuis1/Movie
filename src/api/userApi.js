@@ -17,3 +17,19 @@ export const loginApi = async (payload) => {
     return error;
   }
 };
+
+export const userInfoApi = async () => {
+  try {
+    const user = JSON.parse(localStorage.getItem("auth"));
+    if (user) {
+      const data = await fetcher.post("/QuanLyNguoiDung/LayThongTinNguoiDung", {
+        params: {
+          taiKhoan: user.taiKhoan,
+        },
+      });
+      return data;
+    }
+  } catch (error) {
+    throw new Error();
+  }
+};

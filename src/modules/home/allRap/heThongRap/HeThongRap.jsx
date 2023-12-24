@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Container } from "react-bootstrap";
 import ThongTinRap from "../thongTinRap/ThongTinRap";
-
+import "../allRap.scss";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -48,7 +48,7 @@ export default function HeThongRap({ data }) {
   };
 
   return (
-    <Container style={{ width: "70%" }}>
+    <Container id="heThongRap" style={{ width: "70%" }}>
       <Box
         sx={{
           flexGrow: 1,

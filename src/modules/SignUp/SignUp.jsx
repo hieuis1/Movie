@@ -55,7 +55,6 @@ const SignUp = () => {
     // eslint-disable-next-line no-undef
     mutationFn: (values) => signupApi(values),
     onSuccess: (values) => {
-      console.log(values);
       if (values.response) {
         setErr(values.response.data.content);
       } else {

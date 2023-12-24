@@ -8,7 +8,8 @@ import "./header.scss";
 import IsLogout from "../isLogin/isLogout";
 import IsLogin from "../isLogin/IsLogin";
 import { useDispatch, useSelector } from "react-redux";
-import { LOGOUT } from "../../redux/slice/loginSlice";``
+import { LOGOUT } from "../../redux/slice/loginSlice";
+``;
 import Swal from "sweetalert2";
 const Header = () => {
   const auth = useSelector((state) => state.auth.auth);
@@ -57,9 +58,6 @@ const Header = () => {
                     <Nav.Link>
                       <NavLink to={"/"}>Home</NavLink>
                     </Nav.Link>
-                    <Nav.Link>
-                      <NavLink to={"/news"}>News</NavLink>
-                    </Nav.Link>
                   </div>
 
                   {/* dropdown account 2 */}
@@ -84,8 +82,8 @@ const Header = () => {
                       title={title}
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
                     >
-                      <NavDropdown.Item href="#action3">
-                        Tùy chỉnh
+                      <NavDropdown.Item>
+                        <NavLink to={"/user-detail"}>Tùy chỉnh</NavLink>
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
                       <NavDropdown.Item onClick={logout}>
