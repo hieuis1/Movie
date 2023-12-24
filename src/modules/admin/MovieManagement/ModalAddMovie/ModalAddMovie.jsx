@@ -17,7 +17,6 @@ import { useForm, Controller } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addMovieApi } from "../../../../api/MovieApi";
 import { GROUP_CODE } from "../../../../constants";
-
 import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -104,7 +103,8 @@ const ModalAddMovie = () => {
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <div>
             <Dialog open={isOpen} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
-              <DialogTitle>AddMovie</DialogTitle>
+              
+              <DialogTitle>Thêm phim mới</DialogTitle>
 
               <DialogContent className='pt-2'>
                   <form onSubmit={handleSubmit(onSubmit)}>
@@ -173,6 +173,7 @@ const ModalAddMovie = () => {
               <DialogActions>
                 <Button onClick={handleCloseDialog}>Cancel</Button>
               </DialogActions>
+
             </Dialog>
           </div>
 

@@ -17,10 +17,15 @@ import {
   Box,
   Pagination,
 } from "@mui/material";
-import { getListMovieApi } from "../../../../api/MovieApi";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { deleteMovieApi, getListMovieApi } from "../../../../api/MovieApi";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import Swal from 'sweetalert2'
+import { useDispatch } from 'react-redux';
+import { openModalUpdateMovie } from '../../../../redux/slice/modelUpdateMovie';
+
+
 
 const TableMovie = () => {
   const queryClient = useQueryClient();
@@ -62,12 +67,57 @@ const TableMovie = () => {
 
   const paginatedData = filteredData.slice(startIndex, endIndex);
 
-  const handleDrawerOpen = () => {
-    setIsDrawerOpen(true);
-  };
+  // const handleDrawerOpen = () => {
+  //   setIsDrawerOpen(true);
+  // };
 
-  const handleDrawerClose = () => {
-    setIsDrawerOpen(false);
+  // const handleDrawerClose = () => {
+  //   setIsDrawerOpen(false);
+  // };
+
+  const { mutate: deleteMovie, isPending } = useMutation({
+    mutationFn: (movieID) => {
+      console.log('deleteMovieApi:', movieID);
+      deleteMovieApi(movieID)
+    },
+    onSuccess: () => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Xóa phim thành công',
+        confirmButtonText: 'Đồng ý',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          queryClient.invalidateQueries('get-list-movie')
+        }
+        return
+      })
+    },
+    onError: (error) => {
+      console.log('🚀  error:', error)
+    },
+  })
+
+  const handleDeleteMovie = (maPhim) => {
+    console.log('handleDeleteMovie:', maPhim);
+    Swal.fire({
+      icon: 'warning',
+      title: 'Bạn có chắc chắn muốn xóa phim này?',
+      confirmButtonText: 'Đồng ý',
+      showDenyButton: true,
+      denyButtonText: 'Hủy',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log('deleteMovie:', maPhim);
+        deleteMovie(maPhim)
+      }
+      return
+    })
+  }
+
+  const dispatch = useDispatch();
+  const handleOpenModalUpdateMovie = (movieID) => {
+    console.log('handleOpenModalUpdateMovie', movieID);
+    dispatch(openModalUpdateMovie(movieID));
   };
 
   const menuItems = [
@@ -147,10 +197,10 @@ const TableMovie = () => {
                   <TableCell>
 
                     <IconButton>
-                        <EditOutlinedIcon />
+                        <EditOutlinedIcon onClick={() => {handleOpenModalUpdateMovie(item.maPhim)}} />
                     </IconButton>
 
-                    <IconButton>
+                    <IconButton onClick={() => {handleDeleteMovie(item.maPhim)}}>
                         <DeleteOutlineIcon />
                     </IconButton>
 

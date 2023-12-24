@@ -1,5 +1,4 @@
 import axios from "axios";
-import { CURRENT_USER } from "../constants";
 
 const fetcher = axios.create({
   baseURL: "https://movienew.cybersoft.edu.vn/api",
@@ -10,14 +9,12 @@ const fetcher = axios.create({
 });
 
 fetcher.interceptors.request.use((config) => {
-  const user = JSON.parse(localStorage.getItem("auth"));
+  const user = JSON.parse(localStorage.getItem('auth'))
   if (user) {
-    console.log("userABC",user);
-    config.headers["Authorization"] = user.accessToken;
+    config.headers['Authorization'] = `Bearer ${user.accessToken}`
   }
-  console.log("config", config);
-  return config;
-});
+  return config
+})
 
 fetcher.interceptors.response.use((response) => {
   return response;

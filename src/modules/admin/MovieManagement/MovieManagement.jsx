@@ -4,6 +4,7 @@ import { Container } from '@mui/material'
 import TableMovie from "./TableMovie";
 import HeaderMovie from "./HeaderMovie";
 import ModalAddMovie from "./ModalAddMovie";
+import ModalUpdateMovie from "./ModalUpdateMovie";
 
 
 const MovieManagement = () => {
@@ -14,7 +15,9 @@ const MovieManagement = () => {
         <HeaderMovie />
         <TableMovie />
         <ModalAddMovie />
-    /</Container>
+        <ModalUpdateMovie />
+    
+    </Container>
   )
 }
 
