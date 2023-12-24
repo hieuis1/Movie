@@ -8,10 +8,11 @@ import "./header.scss";
 import IsLogout from "../isLogin/isLogout";
 import IsLogin from "../isLogin/IsLogin";
 import { useDispatch, useSelector } from "react-redux";
-import { LOGOUT } from "../../redux/slice/loginSlice";
+import { LOGOUT } from "../../redux/slice/loginSlice";``
 import Swal from "sweetalert2";
 const Header = () => {
   const auth = useSelector((state) => state.auth.auth);
+  console.log("authtest", auth);
   const dispatch = useDispatch();
   const title = auth ? `Hi, ${auth.hoTen}` : "";
   const logout = () => {

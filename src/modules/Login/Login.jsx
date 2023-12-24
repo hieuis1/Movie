@@ -11,9 +11,13 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { SET_AUTH } from "../../redux/slice/loginSlice";
+import { useAuth } from "../../contexts/UserContext/UserContent";
+
 const Login = () => {
+  const { currentUser, handleSignin: handleSigninContext } = useAuth();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [err, setErr] = useState(null);
   const schema = yup.object({
     taiKhoan: yup.string().required("Vui lòng không để trống"),

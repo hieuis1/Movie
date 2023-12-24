@@ -12,10 +12,22 @@ export const getBannerApi = async () => {
 
 export const getListMovieApi = async () => {
   try {
-    let data = await fetcher.get("/QuanLyPhim/LayDanhSachPhim?maNhom=GP09");
+    let data = await fetcher.get("/QuanLyPhim/LayDanhSachPhim?maNhom=GP05");
     return data.data.content;
   } catch (error) {
     throw new Error();
+  }
+};
+
+export const addMovieApi = async (payload) => {
+  try {
+    const response = await fetcher.post(
+      "/QuanLyPhim/ThemPhimUploadHinh",
+      payload
+    );
+    return response.data.content;
+  } catch (error) {
+    throw "Lỗi rồi";
   }
 };
 
