@@ -8,7 +8,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { ADD_BUY } from "../../redux/slice/buySlice";
 import DetaileTicket from "./detailTicket/DetailTicket";
 import DetailTicket from "./detailTicket/DetailTicket";
+import { useEffect } from "react";
 const Ticket = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   const { id } = useParams();
   const { data = {}, isPending } = useQuery({
     queryKey: ["schedule", id],

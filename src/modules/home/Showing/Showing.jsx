@@ -18,6 +18,7 @@ const Showing = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
+    rows: 2,
   };
   const navigate = useNavigate();
 
@@ -27,7 +28,11 @@ const Showing = () => {
         <Slider {...settings}>
           {data.map((item) => {
             return (
-              <Card className="card-item" key={item.maPhim}>
+              <Card
+                style={{ minWidth: "439px" }}
+                className="card-item"
+                key={item.maPhim}
+              >
                 <Card.Img variant="top" src={item.hinhAnh} />
                 <Card.Body>
                   <Card.Title className="card-title-item">

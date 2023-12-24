@@ -20,10 +20,7 @@ const Login = () => {
     matKhau: yup
       .string()
       .required("vui lòng không để trống")
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/,
-        "Mật khẩu phải bao gồm cả ký tự và số"
-      )
+
       .min(6, "Mật khẩu có ít nhất 6 ký tự"),
   });
 
@@ -34,14 +31,20 @@ const Login = () => {
         setErr(values.response.data.content);
       } else {
         Swal.fire({
-          title: "Đăng ký thành công",
+          title: "Đăng nhập thành công",
           text: "Click ok để tiếp tục",
           icon: "success",
           confirmButtonColor: "#3085d6",
         }).then((result) => {
           if (result.isConfirmed) {
-            navigate("/");
             dispatch(SET_AUTH(values.data.content));
+            let user = JSON.parse(localStorage.getItem("auth"));
+            console.log(user);
+            if (user.maLoaiNguoiDung == "KhachHang") {
+              navigate("/");
+            } else {
+              navigate("/admin");
+            }
           }
         });
       }

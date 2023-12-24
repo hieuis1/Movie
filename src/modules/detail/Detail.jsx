@@ -7,7 +7,14 @@ import { Button } from "@mui/material";
 import dayjs from "dayjs";
 import Loading from "../loading";
 import Time from "./Time";
+import { useEffect } from "react";
 const Detail = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
   const { id } = useParams();
 
   const { data = {}, isPending } = useQuery({

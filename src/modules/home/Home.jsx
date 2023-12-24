@@ -1,6 +1,7 @@
 import Banner from "./Banner";
 import Cinema from "./Cinema";
 import Showing from "./Showing";
+import AllRap from "./allRap";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <Cinema></Cinema>
       <Showing></Showing>
+      <AllRap></AllRap>
     </div>
   );
 };

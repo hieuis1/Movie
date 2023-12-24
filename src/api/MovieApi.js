@@ -12,7 +12,11 @@ export const getBannerApi = async () => {
 
 export const getListMovieApi = async () => {
   try {
-    let data = await fetcher.get("/QuanLyPhim/LayDanhSachPhim?maNhom=GP09");
+    let data = await fetcher.get("/QuanLyPhim/LayDanhSachPhim", {
+      params: {
+        maNhom: "GP09",
+      },
+    });
     return data.data.content;
   } catch (error) {
     throw new Error();

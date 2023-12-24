@@ -49,7 +49,7 @@
       display: none;
       background-color: $auth_color;
       border: none;
-
+      margin-top: 32px;
       &:hover {
         background-color: $auth_hover;
       }
@@ -59,4 +59,13 @@
 .box-slide {
   width: 70% !important;
   padding: 0 !important;
+}
+
+@include respond(big-desktop) {
+  #showing {
+    img {
+      width: 80%;
+      height: 370px;
+    }
+  }
 }

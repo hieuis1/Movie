@@ -1,9 +1,12 @@
 import { Button } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import { array } from "yup";
 
 const DetailTicket = ({ data }) => {
   const buyArr = useSelector((state) => state.buy.buy);
+  const total = useSelector((state) => state.buy.total);
+
   return (
     <div id="detail-ticket">
       <div className="detail-header">
@@ -44,7 +47,7 @@ const DetailTicket = ({ data }) => {
       <hr></hr>
       <div className="detail-body3">
         <div className="rapChieu">
-          <div className="rapChieu-left">
+          <div className="rapChieu-left" style={{ width: "50%" }}>
             <div className="rapChieu-left-item">
               <i class="fa fa-institution"></i> Rạp chiếu
             </div>
@@ -122,6 +125,10 @@ const DetailTicket = ({ data }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="total-ticket">
+        <div className="total-text">Tổng tiền</div>
+        <div className="total-price">{total} VND</div>
       </div>
       <div className="button-buy">
         <Button variant="contained">Mua ({buyArr.length} vé)</Button>

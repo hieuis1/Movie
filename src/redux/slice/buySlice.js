@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   buy: [],
+  total: 0,
 };
 
 const buySlice = createSlice({
@@ -19,6 +20,10 @@ const buySlice = createSlice({
           (item) => item.maGhe != action.payload.maGhe
         );
       }
+      state.total = 0;
+      state.buy.forEach((item) => {
+        state.total += item.giaVe;
+      });
     },
   },
 });

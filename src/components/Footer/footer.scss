@@ -1,0 +1,74 @@
+#footer {
+  color: #f5f7ea;
+  width: 100%;
+  padding-bottom: 24px;
+  background-color: #212121;
+  .footer-head {
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    h5 {
+      color: #fff;
+      padding: 20px 0 10px 0;
+      font-size: 12px;
+    }
+    .tix {
+      .tix-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        p {
+          color: #9e9e9e;
+          font-size: 12px;
+          transition: 0.4s;
+          padding-bottom: 7px;
+          cursor: pointer;
+          &:hover {
+            color: white;
+          }
+        }
+      }
+    }
+    .doiTac {
+      .doiTac-body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 20px;
+      }
+    }
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+  .separate {
+    margin-top: 50px;
+    background-color: #fff !important;
+    border-top: #fff solid 2px !important;
+  }
+  .footer-bottom {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    img {
+      width: 100px;
+      height: 60px;
+    }
+    h5 {
+      color: #fff;
+      padding: 20px 0 10px 0;
+      font-size: 12px;
+    }
+    p {
+      font-size: 12px;
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: 0.0075em;
+    }
+    .bottom-right {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
