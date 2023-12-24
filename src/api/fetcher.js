@@ -8,4 +8,17 @@ const fetcher = axios.create({
   },
 });
 
+fetcher.interceptors.request.use((config) => {
+  const user = JSON.parse(localStorage.getItem('auth'))
+  if (user) {
+    config.headers['Authorization'] = `Bearer ${user.accessToken}`
+  }
+  return config
+})
+
+fetcher.interceptors.response.use((response) => {
+  return response;
+});
+
 export default fetcher;
+
