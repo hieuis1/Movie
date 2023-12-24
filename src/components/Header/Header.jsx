@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./header.scss";
 import IsLogout from "../isLogin/isLogout";
 import IsLogin from "../isLogin/IsLogin";
@@ -13,7 +13,7 @@ import { LOGOUT } from "../../redux/slice/loginSlice";
 import Swal from "sweetalert2";
 const Header = () => {
   const auth = useSelector((state) => state.auth.auth);
-  console.log("authtest", auth);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const title = auth ? `Hi, ${auth.hoTen}` : "";
   const logout = () => {
@@ -23,6 +23,7 @@ const Header = () => {
       icon: "success",
     });
     dispatch(LOGOUT());
+    navigate("/");
   };
   return (
     <div id="headere-navbar">
